@@ -3,38 +3,32 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import json2mq from 'json2mq';
 import { makeStyles } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+import { useTheme } from '@material-ui/core/styles';    //Hook from material UI
+import useMediaQuery from '@material-ui/core/useMediaQuery'; //Hook from material UI
 import RedditIcon from '@material-ui/icons/Reddit';
 import { SearchReddit } from './Search';
 
 //Responsiveness
-const MediaQueryTypes = () => { 
-    useMediaQuery(
-        json2mq([
-            //Mobile
-            { minWidth: 280, maxWidth: 500, handheld: true, orientation: 'portrait' },
-            //Tablet
-            { minWidth: 500, maxWidth: 800, handheld: true, orientation: 'Landscape' },
-            //Desktop
-            { minWidth: 801, maxWidth: 1500, handheld: false, screen: true, orientation: 'Landscape' }
-        ])
-    )
-};    
-
-
-
+ 
 //Styles
 const headerStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+            width: 400,
+        [theme.breakpoints.down('xs')]: {
+            width: 200
+          },
+          [theme.breakpoints.up('md')]: {
+            width: 600
+          },
+          [theme.breakpoints.up('lg')]: {
+            width: 800
+          },
       },
     title: {
         flexGrow: 1,
         display: 'none',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.down('xs')]: {
           display: 'block',
         },
       },
@@ -45,25 +39,27 @@ const headerStyles = makeStyles((theme) => ({
   }));
 
 export const Header = () => {
-    const mediaSize = MediaQueryTypes;
+
     const classes = headerStyles;
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
     
 
 
     return(
-            <Container {...mediaSize.json2mq}>
-                <div className={classes.root}>
+            <Container>
+                <div className={classes.root} container justify= "center" alignItems={matches ? 'flex-start': 'center'}>
                     <AppBar position="static">
                         <Toolbar>
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <RedditIcon fontSize='large'  className={classes.RedditIcon} />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <h1 className={classes.title} noWrap>
                                     React2Reddit
                                 </h1>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <SearchReddit />
                             </Grid>
                         </Toolbar>
