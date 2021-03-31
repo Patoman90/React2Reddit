@@ -53,7 +53,7 @@ const searchStyles = makeStyles((theme) => ({
 
 //Search component
 export const SearchReddit = () => {
-  const classes = searchStyles;
+  const classes = searchStyles();
 
   const searchValue = useSelector(state => state.search);
 

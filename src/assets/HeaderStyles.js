@@ -6,20 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 //Styles
 export const headerStyles = makeStyles((theme) => (
     {
+        container:{
+          backgroundColor: '#404bce',
+        },
         toolbar:{
-                width: 400,
-            [theme.breakpoints.up('xs')]: {
-                width: 250
-            },
-            [theme.breakpoints.down('sm')]: {
-                width: 400
-            },
-            [theme.breakpoints.up('md')]: {
-                width: 600
-            },
-            [theme.breakpoints.up('lg')]: {
-                width: 800
-            }
+                width: 'auto',
         },
         RedditIcon: {
           color:'white',

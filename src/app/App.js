@@ -6,13 +6,19 @@ import {
   Redirect
 } from 'react-router-dom';
 import { Header } from '../Components/Header';
+import { ContentBody } from '../Components/Body';
 import { Footer } from '../Components/Footer';
+import { CssBaseline } from '@material-ui/core';
 
 
-function App() {
+const App = () => {
+
+  //const classes = AppStyles;
   
   return (
-    <Router>
+    <>
+      <CssBaseline />
+      <Router>
       <div className="App">
         <Switch>
           <Route 
@@ -20,6 +26,7 @@ function App() {
             render={() => (
               <React.Fragment>
                 <Header />
+                <ContentBody />
                 <Footer />
               </React.Fragment>
             )}
@@ -28,7 +35,9 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </>
+
   )
 }
 
-export default App
+export default App;
