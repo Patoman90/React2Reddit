@@ -56,6 +56,7 @@ export const SearchReddit = () => {
   const classes = searchStyles();
 
   const searchValue = useSelector(state => state.search);
+  //Possibly use UseEffectHook here
 
   return (
     <div className={classes.search}>

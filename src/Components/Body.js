@@ -1,6 +1,7 @@
 import React from 'react';
 import { BodyStyles } from '../assets/BodyStyles';
-import {Grid,Button, Card, CardActions, CardContent, CardMedia, Typography, Container} from '@material-ui/core';
+import { Grid, Button, Card, CardActions, CardContent, CardMedia, Typography, Container } from '@material-ui/core';
+import { Posts } from '../features/Posts/Posts';
 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -39,6 +40,7 @@ export const ContentBody = () => {
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5">Post Heading</Typography>
                   <Typography> Post description</Typography>
+                  <Posts />
                 </CardContent>
                 <CardActions className={classes.cardActions}>
                   <Button size="small" color="primary">Comments</Button>
